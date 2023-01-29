@@ -8,6 +8,6 @@
 
 @layer components {
   .addtocartbtn {
-    @apply bg-[#1d9bf0] p-2 text-xs md:text-sm rounded-sm hover:opacity-80 active:bg-[#167abc]
+    @apply bg-[#1d9bf0] p-2 text-base text-white font-medium md:text-sm rounded-md hover:opacity-80 active:bg-[#167abc]
   }
 }

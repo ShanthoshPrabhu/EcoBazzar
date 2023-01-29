@@ -30,8 +30,8 @@ function cart() {
   }
   return (
     <div>
-        <main className=' xl:flex max-w-screen-2xl mx-auto '>
-            <div className=' flex flex-col p-5 space-y-10 bg-gray-200 xl:w-3/4 lg:3/4'>
+        <main className=' xl:flex max-w-screen-2xl mx-auto min-h-screen bg-gray-100'>
+            <div className=' flex flex-col p-5 space-y-10 xl:w-3/4 lg:3/4'>
                {items?.length === 0 ? (
                 <h1 className=' text-3xl border-b pb-4'>Your cart is empty</h1>
                ):(
@@ -53,14 +53,14 @@ function cart() {
             </div>
             
 
-            <div className=' bg-gray-300 m-3 p-4 xl:w-1/4 xl:h-28'>
+            <div className=' bg-white m-3 p-4 xl:w-1/4 xl:h-28 rounded-md mt-8'>
                {items.length > 0 ? (
-                <div className='flex flex-col'>
+                <div className='flex flex-col my-2'>
                   <h2>Total no of item : {items.length}</h2>
-                  <div className=' font-bold'>
+                  <div className=' font-bold my-2'>
                   Total amount : Rs {total}
                   </div>
-                  <button  onClick={createStripeSession} className=' font-bold p-2 rounded-sm bg-black text-white'>Proceed to buy</button>
+                  <button  onClick={createStripeSession} className=' font-bold p-2 my-2 rounded-sm bg-black hover:bg-opacity-90 active:bg-opacity-100 text-white'>Proceed to buy</button>
                 </div>
                ):(
                 <>

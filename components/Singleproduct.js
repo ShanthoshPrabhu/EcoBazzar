@@ -21,26 +21,25 @@ function Singleproduct({id,title,price,description,category,image}) {
      console.log('mm')
   }
   // const z =Array(rating).fill().map((_,i)=> (
-  //   <StarIcon className=' h-5'/>
+  //   <StarIcon className=' h-4 text-yellow-300'/>
   //  ))
   
   return (
-    <div className=' relative flex flex-col justify-evenly m-5 bg-white p-10' key={id}>
+    <div className=' relative flex flex-col justify-evenly m-5 bg-white p-10 rounded-lg' key={id}>
         <p className=' absolute top-2  right-2 text-xs italic text-gray-400'>{category}</p>
      
-      <div className=' bg-orange-700 flex justify-center'>
+      <div className=' flex justify-center my-5'>
       <Image src={image} alt='' width={150} height={150}  className=' xl:max-h-[140px] xl:min-h-[140px] lg:max-h-[140px] lg:min-h-[140px] md:max-h-[120px] md:min-h-[120px]  object-contain'/>
      </div>    
-       <h4 className='my-3'>{title}</h4>
-      
+       <h4 className='my-3 mb-1 font-semibold'>{title}</h4>
+    
+       <p className=' my-2 text-sm line-clamp-2'>{description}</p>
 
-       <div className='flex'>
-        
-       </div>
+       {/* <div className='flex mb-2'>
+        {z}
+       </div> */}
 
-       <p className=' my-2 text-xs line-clamp-2'>{description}</p>
-
-       <div className=' text-sm mb-2'>{rupees}</div>
+       <div className=' text-sm mb-3 font-semibold'>₹ {rupees}</div>
 
        <button onClick={addProduct} className=' mt-auto addtocartbtn'>Add to cart</button>
 
