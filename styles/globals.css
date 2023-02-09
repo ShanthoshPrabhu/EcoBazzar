@@ -8,7 +8,7 @@
 
 @layer components {
   .addtocartbtn {
-    @apply inline-flex  justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-xs md:text-base font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+    @apply inline-flex  justify-center rounded-md border border-transparent bg-blue-100 active:bg-blue-400 px-4 py-2 text-xs md:text-base font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
   }
   .removecart{
     @apply inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-xs md:text-base font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2
