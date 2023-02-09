@@ -60,7 +60,7 @@ function Cart() {
                   <div className=' font-semibold my-2'>
                   Total amount : Rs {total}
                   </div>
-                  <button  onClick={createStripeSession} className=' font-bold p-2 my-2 rounded-md bg-black hover:bg-opacity-9.0000000 active:bg-opacity-100 text-white'>Proceed to buy</button>
+                  <button  onClick={createStripeSession} disabled={!session} className={` font-bold p-2 my-2 rounded-md bg-black hover:bg-opacity-9.0000000 active:bg-opacity-100 text-white ${!session ? 'cursor-auto bg-opacity-70':null}`}>Proceed to buy</button>
                 </div>
                ):(
                 <>
