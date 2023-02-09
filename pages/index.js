@@ -4,10 +4,12 @@ import { Inter } from '@next/font/google'
 import Header from '../components/Header'
 import Carousal from '../components/Carousal'
 import Products from '../components/Products'
-
+import {Data} from '../components/Data'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({products}) {
+  console.log('products',products)
+  console.log('data',Data)
   return (
     <>
       <Head>
@@ -16,20 +18,20 @@ export default function Home({products}) {
       <main className=' max-w-screen-2xl'>
         <Header/>
         <Carousal/>
-        <Products products={products}/>
+        <Products products={Data}/>
       </main>
     </>
   )
 }
 
-export const getServerSideProps = async(context) => {
-  const products = await fetch('https://fakestoreapi.com/products').then(
-    (res) => res.json()
-  )
+// export const getServerSideProps = async(context) => {
+//   const products = await fetch('https://fakestoreapi.com/products').then(
+//     (res) => res.json()
+//   )
 
-  return {
-    props:{
-      products:products
-    }
-  }
-}
+//   return {
+//     props:{
+//       products:products
+//     }
+//   }
+// }
