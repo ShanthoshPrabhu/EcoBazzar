@@ -22,14 +22,14 @@ function Cartproducts({id,title,price,description,category,image,rating}) {
     <div className=' grid grid-cols-5 bg-white p-6 shadow-lg rounded-lg cursor-pointer'>
        {/* <Image height={200} width={200}/> */}
        <Image src={image} width={140} height={140} alt="" className=' xl:max-h-[140px] xl:min-h-[140px] lg:max-h-[140px] lg:min-h-[140px] md:max-h-[120px] md:min-h-[120px]  object-contain'/>
-       <div className=' col-span-3 mr-5 '>
-          <p className='font-semibold lg:text-lg'>{title}</p>
+       <div className=' col-span-3 mr-5 pl-4'>
+          <p className='font-semibold text-sm md:text-base lg:text-lg'>{title}</p>
           <div className='flex my-2'>
           {new Array(rating)
             .fill()
             .map((_, i) => (
               <div className='flex' key={i}>
-                <StarIcon className="w-5 h-5 text-yellow-400" key={i} />
+                <StarIcon className="w-4 h-4 text-yellow-400" key={i} />
               </div>
             ))}
         </div>

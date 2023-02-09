@@ -44,7 +44,7 @@ function Singleproduct({id,title,price,description,category,image}) {
     
        <p className=' my-2 text-sm line-clamp-2'>{description}</p>
 
-       {/* <div className='flex mb-2'>
+       <div className='flex mb-2'>
           {new Array(rating)
             .fill()
             .map((_, i) => (
@@ -52,7 +52,7 @@ function Singleproduct({id,title,price,description,category,image}) {
                 <StarIcon className="w-6 h-6 text-yellow-400" key={i} />
               </div>
             ))}
-        </div> */}
+        </div>
        <div className=' text-sm mt-2 mb-3 font-semibold'>₹ {rupees}</div>
 
        <button onClick={addProduct} className=' mt-auto addtocartbtn'>Add to cart</button>
