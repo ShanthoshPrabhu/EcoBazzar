@@ -13,7 +13,7 @@ function Header() {
    console.log(items)
   return (
    <div className=' max-w-screen-2xl pl-2 xl:text-lg text-xs sm:text-base md:text-base   flex h-[70px] items-center  xl:justify-between pt-6 xl:pl-12 xl:pr-8 text-[#1d9bf0] font-medium shadow-lg pb-6 bg-black'>
-      <div className=' w-[24%] ml-5 md:ml-0 md:w-[17%]  xl:text-lg font-bold '>ECOM-BAZZAR</div>
+      <div className=' w-[30%] ml-5 md:ml-0 md:w-[17%]  xl:text-lg font-bold '>ECOM-BAZZAR</div>
       {/* <div className="bg-white items-center  w-1/2 flex rounded-full shadow-md  mb-5 sticky" > */}
          {/* <svg width="20" height="20" fill="currentColor" class="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-blue-500" aria-hidden="true">
          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
