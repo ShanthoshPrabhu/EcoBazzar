@@ -8,9 +8,9 @@ import { selectItems, selectTotal } from '../redux/cartslice';
 
 const stripePromise = loadStripe('pk_test_51LQsMQSEZbNosnclAMiT76ev3dATx7wFX0yJc3iiULElyZQ35AQHFNrs8EbzfOagqsEja45l2Y6nQkDCughqgzOC00Hk8mCCrn');
 
-function cart() {
+function Cart() {
   const items = useSelector(selectItems);
-  const total = useSelector(selectTotal);
+  const total = useSelector(selectTotal).toFixed(2);;
   const {data:session} =useSession();
 
  async function createStripeSession () {
@@ -53,14 +53,14 @@ function cart() {
             </div>
             
 
-            <div className=' bg-white m-3 p-4 xl:w-1/4 xl:h-28 rounded-md mt-8'>
+            <div className=' bg-white m-3 p-4 xl:w-1/4 xl:h-40 rounded-lg mt-8'>
                {items.length > 0 ? (
                 <div className='flex flex-col my-2'>
-                  <h2>Total no of item : {items.length}</h2>
-                  <div className=' font-bold my-2'>
+                  <h2 className='font-semibold'>Total no of item : {items.length}</h2>
+                  <div className=' font-semibold my-2'>
                   Total amount : Rs {total}
                   </div>
-                  <button  onClick={createStripeSession} className=' font-bold p-2 my-2 rounded-sm bg-black hover:bg-opacity-90 active:bg-opacity-100 text-white'>Proceed to buy</button>
+                  <button  onClick={createStripeSession} className=' font-bold p-2 my-2 rounded-md bg-black hover:bg-opacity-9.0000000 active:bg-opacity-100 text-white'>Proceed to buy</button>
                 </div>
                ):(
                 <>
@@ -72,5 +72,5 @@ function cart() {
   )
 }
 
-export default cart
+export default Cart
 
