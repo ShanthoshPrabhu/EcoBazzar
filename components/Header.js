@@ -3,12 +3,23 @@ import { useRouter } from 'next/router';
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { selectItems } from '../redux/cartslice';
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
 
 
 function Header() {
    const { data: session } = useSession();
    const router = useRouter();
    const items = useSelector(selectItems);
+   let [isOpen, setIsOpen] = useState(false)
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
   
    console.log(items)
   return (
@@ -22,13 +33,59 @@ function Header() {
        {/* </div> */}
        <div className='flex  w-[33%] xl:pl-16 text-sm lg:text-base justify-evenly items-center font-semibold'>
          <div className=' flex '>
-            {session?(<div className=' cursor-pointer' onClick={signOut}>Signout</div>):(<div className=' cursor-pointer' onClick={()=>router.push('/login')}>Signin</div>)}
+            {session?(<div className=' cursor-pointer' onClick={openModal}>Signout</div>):(<div className=' cursor-pointer' onClick={()=>router.push('/login')}>Signin</div>)}
          </div>
          <div className=' cursor-pointer hidden md:inline'>Orders</div>
          <div onClick={()=>router.push('/cart')} className=' cursor-pointer'>
             <span>Cart {items?.length}</span>
          </div>
        </div>
+       <Transition appear show={isOpen} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModal}>
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <div className="fixed inset-0 bg-[#5b7083] bg-opacity-25 transition-opacity" />
+                  </Transition.Child>
+
+                  <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95"
+                      >
+                        <div className='  w-[300px] space-y-4 bg-white rounded-lg border-gray-100 h-[120px] p-3 py-4 '>
+                          <div className=' text-black font-medium text-lg mt-[10px] text-opacity-90 '>
+                             Logout from your account?
+                          </div>
+                          <div className='flex justify-around mt-5'>
+                          <div><button className=' px-2 py-1 text-blue-400 outline-none rounded-lg text-opacity-70 hover:bg-blue-100 font-semibold' onClick={(e)=>{
+                                e.stopPropagation();
+                                closeModal()
+                              }}>Cancel</button></div>
+                              <div><button className='px-2 py-1 rounded-lg outline-none text-red-400 text-opacity-80 hover:bg-red-100 font-medium' onClick={(e) => {
+                              e.stopPropagation();
+                              signOut()
+                              closeModal()
+                              }}>Confirm</button></div>
+                          </div>
+                         </div>
+                      </Transition.Child>
+                    </div>
+                  </div>
+                </Dialog>
+      </Transition>
    </div>
   )
 }
